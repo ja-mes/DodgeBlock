@@ -9,7 +9,6 @@ public class ScoreManager : MonoBehaviour {
 	private int score = 0;
 
 	public void IncScore() {
-		print("inc score");
 		score ++;
 
 		scoreText.text = score.ToString();
