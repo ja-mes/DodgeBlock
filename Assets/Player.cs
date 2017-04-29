@@ -4,45 +4,29 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-	public Transform[] movePoints;
+    public Transform movePoint1;
+    public Transform movePoint2;
+    public float lerpSpeed = 20f;
 
 	private Rigidbody2D rb;
-	private int currentMovePoint = 1;
-    private float currentX;
+    private Transform des;
 
 
 	void Start() {
 		rb = GetComponent<Rigidbody2D>();
+        des = movePoint1;
 	}
 
     void Update()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-
-        print(currentMovePoint + ", " +  x);
-
-        if (x == currentX)
-            return;
-
-        if (x == -1)
-        {
-            if (currentMovePoint > 0) {
-				currentMovePoint -= 1;
-                rb.MovePosition(movePoints[currentMovePoint].position);
-			}
-
-        }
-        else if (x == 1)
-        {
-			if (currentMovePoint < 2) {
-				currentMovePoint += 1;
-				rb.MovePosition(movePoints[currentMovePoint].position);
-			}
+        if(Input.GetMouseButtonDown(0)) {
+            if (des == movePoint1)
+                des = movePoint2;
+            else 
+                des = movePoint1;
         }
 
-
-        currentX = x;
+        rb.MovePosition(Vector3.Lerp(transform.position, des.position, lerpSpeed * Time.deltaTime));
     }
 
 }
