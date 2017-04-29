@@ -29,4 +29,9 @@ public class Player : MonoBehaviour
         rb.MovePosition(Vector3.Lerp(transform.position, des.position, lerpSpeed * Time.deltaTime));
     }
 
+    void OnCollisionEnter2D()
+    {
+        FindObjectOfType<ScoreManager>().Die();	
+    }
+
 }
