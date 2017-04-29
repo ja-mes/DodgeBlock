@@ -1,0 +1,18 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Enemy : MonoBehaviour {
+    bool hasHitScore = false;
+
+	void Update() {
+		if (transform.position.y < -4.4 && !hasHitScore) {
+			FindObjectOfType<ScoreManager>().IncScore();	
+			hasHitScore = true;
+		}
+		else if (transform.position.y < -5.5) {
+			Destroy(gameObject);
+		}
+	}
+
+}
