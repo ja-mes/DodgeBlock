@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour {
 	}
 
 	public void Die() {
+        score = 0;
 		SceneManager.LoadScene(0);
 	}
 }
