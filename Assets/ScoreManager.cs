@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour {
 
@@ -15,6 +16,6 @@ public class ScoreManager : MonoBehaviour {
 	}
 
 	public void Die() {
-
+		SceneManager.LoadScene(0);
 	}
 }
