@@ -14,11 +14,6 @@ public class EnemySpawner : MonoBehaviour
 
 	void SpawnEnemies() {
 		int randomIndex = Random.Range(0, spawnPoints.Length);
-
-        for(var i = 0; i < spawnPoints.Length; i++) {
-            if (i != randomIndex) {
-                Instantiate(enemy, spawnPoints[i].position, Quaternion.identity);
-			}
-		}
+		Instantiate(enemy, spawnPoints[randomIndex].position, Quaternion.identity);
 	}
 }
