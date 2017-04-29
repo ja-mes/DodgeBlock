@@ -29,9 +29,11 @@ public class Player : MonoBehaviour
         rb.MovePosition(Vector3.Lerp(transform.position, des.position, lerpSpeed * Time.deltaTime));
     }
 
-    void OnCollisionEnter2D()
+    void OnCollisionEnter2D(Collision2D col)
     {
-        FindObjectOfType<ScoreManager>().Die();	
+        // if (col.gameObject.tag == "Enemy") {
+        //     FindObjectOfType<ScoreManager>().Die();	
+        // }
     }
 
 }

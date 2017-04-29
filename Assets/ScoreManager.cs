@@ -9,14 +9,12 @@ public class ScoreManager : MonoBehaviour {
     public Text scoreText;
 	private int score = 0;
 
-	public void IncScore() {
-		score ++;
-
+	public void IncScore(int amount = 1) {
+		score += amount;
 		scoreText.text = score.ToString();
 	}
 
 	public void Die() {
-        //score = 0;
 		SceneManager.LoadScene(0);
 	}
 }
