@@ -14,6 +14,7 @@ public class Friend : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col) {
 		if (col.gameObject.tag == "Player") {
 			scoreManager.IncScore(10);
+			Destroy(gameObject);
 		}
 	}
 }
