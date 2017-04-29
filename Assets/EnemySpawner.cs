@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-	public Transform[] spawnPoints;
-	public GameObject enemy;
-	public float spawnRate = 1;
+    public Transform[] spawnPoints;
+    public GameObject enemy;
+    public float spawnRate = 1;
 
-	void Start() {
-		InvokeRepeating("SpawnEnemies", spawnRate, spawnRate);
-	}
+    void Start()
+    {
+        InvokeRepeating("SpawnEnemies", spawnRate, spawnRate);
+    }
 
-	void SpawnEnemies() {
-		int randomIndex = Random.Range(0, spawnPoints.Length);
-		Instantiate(enemy, spawnPoints[randomIndex].position, Quaternion.identity);
-	}
+    void SpawnEnemies()
+    {
+        int randomIndex = Random.Range(0, spawnPoints.Length);
+        Instantiate(enemy, spawnPoints[randomIndex].position, Quaternion.identity);
+    }
 }
