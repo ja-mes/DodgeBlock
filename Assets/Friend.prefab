@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e7d9b722e634d0a9ed7aa925eb0199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  part: {fileID: 198741811018943416, guid: 9abfd0307491342ae92457d298de3d22, type: 2}
   scoreAmountToAdd: 10
 --- !u!212 &212420860720247708
 SpriteRenderer:

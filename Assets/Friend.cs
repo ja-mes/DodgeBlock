@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Friend : MonoBehaviour {
 
+    public ParticleSystem part;
 	public int scoreAmountToAdd = 10;
 	private ScoreManager scoreManager;
 
@@ -15,6 +16,8 @@ public class Friend : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			scoreManager.IncScore(10);
 			Destroy(gameObject);
+            ParticleSystem newPart = Instantiate(part, transform.position, Quaternion.identity);
+			newPart.Play();
 		}
 	}
 }

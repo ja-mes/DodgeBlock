@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public ParticleSystem playerPart;
     bool hasHitScore = false;
 
     void Update()
@@ -25,6 +26,7 @@ public class Enemy : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
 			FindObjectOfType<ScoreManager>().Die();
+			Instantiate(playerPart, col.gameObject.transform.position, Quaternion.identity);
         }
     }
 
