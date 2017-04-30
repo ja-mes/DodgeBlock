@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public ParticleSystem part;
     public Transform movePoint1;
     public Transform movePoint2;
     public float lerpSpeed = 20f;
@@ -27,5 +28,10 @@ public class Player : MonoBehaviour
         }
 
         rb.MovePosition(Vector3.Lerp(transform.position, des.position, lerpSpeed * Time.deltaTime));
+    }
+
+    public void InvokeExplosion() {
+        ParticleSystem newPart = Instantiate(part, transform.position, Quaternion.identity);
+        newPart.Play();
     }
 }
