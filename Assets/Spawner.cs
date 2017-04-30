@@ -7,10 +7,10 @@ public class Spawner : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject enemy;
 	public GameObject[] friends;
-
 	public float friendSpawnProbability = 20;
-
     public float spawnRate = 1;
+
+    private int currentRandomIndex;
 
     void Start()
     {
@@ -21,12 +21,21 @@ public class Spawner : MonoBehaviour
     {
         int randomIndex = Random.Range(0, spawnPoints.Length);
 
-		if (Random.value < friendSpawnProbability) {
+        if (randomIndex == currentRandomIndex)
+        {
+            randomIndex = Random.Range(0, spawnPoints.Length);
+        }
+        if (Random.value < friendSpawnProbability)
+        {
             int friendRandomIndex = Random.Range(0, friends.Length);
-			Instantiate(friends[friendRandomIndex], spawnPoints[randomIndex].position, Quaternion.identity);
-		} else {
+            Instantiate(friends[friendRandomIndex], spawnPoints[randomIndex].position, Quaternion.identity);
+        }
+        else
+        {
             Instantiate(enemy, spawnPoints[randomIndex].position, Quaternion.identity);
 
-		}
+        }
+
+        currentRandomIndex = randomIndex;
     }
 }
