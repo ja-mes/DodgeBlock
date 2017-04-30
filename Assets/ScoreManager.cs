@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour {
 
     public Text scoreText;
+	public float timeBeforeDestruction = 1f;
 	private int score = 0;
+	
 
 	public void IncScore(int amount = 1) {
 		score += amount;
@@ -15,6 +17,11 @@ public class ScoreManager : MonoBehaviour {
 	}
 
 	public void Die() {
+        Destroy(GameObject.FindGameObjectWithTag("Player"));
+		Invoke("ResetScene", timeBeforeDestruction);
+	}
+
+	private void ResetScene() {
 		SceneManager.LoadScene(0);
 	}
 }

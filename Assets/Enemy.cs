@@ -26,7 +26,8 @@ public class Enemy : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
 			FindObjectOfType<ScoreManager>().Die();
-			Instantiate(playerPart, col.gameObject.transform.position, Quaternion.identity);
+			ParticleSystem part = Instantiate(playerPart, col.gameObject.transform.position, Quaternion.identity);
+			part.Play();
         }
     }
 
