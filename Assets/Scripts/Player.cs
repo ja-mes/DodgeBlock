@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public GameObject expoParticles;
     public ParticleSystem part;
     public Transform movePoint1;
     public Transform movePoint2;
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
     }
 
     public void InvokeExplosion() {
+//        Instantiate(expoParticles, transform.position, Quaternion.identity);
         ParticleSystem newPart = Instantiate(part, transform.position, Quaternion.identity);
         newPart.Play();
     }
