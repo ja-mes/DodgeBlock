@@ -7,6 +7,6 @@ public class DisplayScore : MonoBehaviour {
 	public Text score; 
 
 	void Start() {
-		score.text = FindObjectOfType<GlobalScript>().score.ToString();
+		score.text = "SCORE: " + FindObjectOfType<GlobalScript>().score.ToString();
 	}
 }
