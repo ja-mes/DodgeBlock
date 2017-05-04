@@ -24,6 +24,10 @@ public class ScoreManager : MonoBehaviour {
         Destroy(GameObject.FindGameObjectWithTag("Player"));
         Invoke("ResetScene", timeBeforeDestruction);
         GameObject.FindObjectOfType<GlobalScript>().score = score;
+
+		if(PlayerPrefs.GetInt("HighScore") < score) {
+			PlayerPrefs.SetInt("HighScore", score);
+		}
     }
 
     private void ResetScene()
