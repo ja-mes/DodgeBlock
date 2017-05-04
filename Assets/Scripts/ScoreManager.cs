@@ -22,6 +22,6 @@ public class ScoreManager : MonoBehaviour {
 	}
 
 	private void ResetScene() {
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene(2);
 	}
 }
