@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Friend
+  - music
+  - BreakSound
   layers:
   - Default
   - TransparentFX
