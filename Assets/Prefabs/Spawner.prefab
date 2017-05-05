@@ -115,5 +115,6 @@ MonoBehaviour:
   enemy: {fileID: 1869618214263496, guid: 49a08f2cafda24c88b89be90dfce6403, type: 2}
   friends:
   - {fileID: 1982237484842714, guid: af14ab186c7ba487c88d0391a2fad3f6, type: 2}
+  - {fileID: 1150578783502286, guid: 2beb6fb73809f4c789af36b14a16dd80, type: 2}
   friendSpawnProbability: 0.1
   spawnRate: 0.4

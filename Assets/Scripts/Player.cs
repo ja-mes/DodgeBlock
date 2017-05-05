@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject expoParticles;
     public ParticleSystem part;
     public Transform movePoint1;
     public Transform movePoint2;
