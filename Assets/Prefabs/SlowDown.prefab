@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212307140276111138}
   - component: {fileID: 61055968958466236}
   - component: {fileID: 50553354926761820}
-  - component: {fileID: 114565931391290672}
   m_Layer: 0
   m_Name: SlowDown
   m_TagString: Friend
@@ -77,19 +76,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
---- !u!114 &114565931391290672
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1150578783502286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0e7d9b722e634d0a9ed7aa925eb0199, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  part: {fileID: 198741811018943416, guid: 9abfd0307491342ae92457d298de3d22, type: 2}
-  scoreAmountToAdd: 10
 --- !u!212 &212307140276111138
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -122,6 +108,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b3c8c33d43f374f7aa85baadd551b4f3, type: 3}
-  m_Color: {r: 0.5536873, g: 0.97794116, b: 0.6970559, a: 1}
+  m_Color: {r: 0.2352941, g: 0.6202838, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

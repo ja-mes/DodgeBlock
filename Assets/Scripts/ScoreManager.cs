@@ -23,7 +23,11 @@ public class ScoreManager : MonoBehaviour {
         isDead = true;
         Destroy(GameObject.FindGameObjectWithTag("Player"));
         Invoke("ResetScene", timeBeforeDestruction);
-        GameObject.FindObjectOfType<GlobalScript>().score = score;
+        
+        GlobalScript gl = GameObject.FindObjectOfType<GlobalScript>();
+
+        if (gl != null) 
+            gl.score = score;
 
 		if(PlayerPrefs.GetInt("HighScore") < score) {
 			PlayerPrefs.SetInt("HighScore", score);
