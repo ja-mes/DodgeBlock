@@ -24,7 +24,7 @@ public class ScoreManager : MonoBehaviour {
         Destroy(GameObject.FindGameObjectWithTag("Player"));
         Invoke("ResetScene", timeBeforeDestruction);
         
-        GlobalScript gl = GameObject.FindObjectOfType<GlobalScript>();
+        GameManager gl = GameObject.FindObjectOfType<GameManager>();
 
         if (gl != null) 
             gl.score = score;
