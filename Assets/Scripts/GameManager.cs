@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlobalScript : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public int score;
 
