@@ -28,7 +28,6 @@ public class Spawner : MonoBehaviour
         if (Random.value < friendSpawnProbability)
         {
             int friendRandomIndex = Random.Range(0, friends.Length);
-            Debug.Log(friendRandomIndex);
             Instantiate(friends[friendRandomIndex], spawnPoints[randomIndex].position, Quaternion.identity);
         }
         else

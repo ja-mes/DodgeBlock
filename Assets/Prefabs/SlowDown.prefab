@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212307140276111138}
   - component: {fileID: 61055968958466236}
   - component: {fileID: 50553354926761820}
+  - component: {fileID: 114149016967996246}
   m_Layer: 0
   m_Name: SlowDown
   m_TagString: Friend
@@ -36,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1150578783502286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1885564, y: 1.3911515, z: 0}
+  m_LocalPosition: {x: -1.31, y: 4.06, z: 0}
   m_LocalScale: {x: 13.7932005, y: 6.394303, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,6 +77,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
+--- !u!114 &114149016967996246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1150578783502286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a33153a4ae884bd68a8c6ff608b5b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ps: {fileID: 0}
+  timeScale: 0.5
+  resetTime: 3
 --- !u!212 &212307140276111138
 SpriteRenderer:
   m_ObjectHideFlags: 1
