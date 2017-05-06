@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Transform movePoint1;
     public Transform movePoint2;
     public float lerpSpeed = 20f;
+    private float adjustedLerpSpeed;
 
 	private Rigidbody2D rb;
     private Transform des;
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
 
 	void Start() {
 		rb = GetComponent<Rigidbody2D>();
+        adjustedLerpSpeed = lerpSpeed;
         des = movePoint1;
 	}
 
@@ -27,11 +29,11 @@ public class Player : MonoBehaviour
                 des = movePoint1;
         }
 
-        rb.MovePosition(Vector3.Lerp(transform.position, des.position, lerpSpeed * Time.deltaTime));
+
+        rb.MovePosition(Vector3.Lerp(transform.position, des.position, lerpSpeed * (1 / Time.timeScale) * Time.deltaTime));
     }
 
     public void InvokeExplosion() {
-//        Instantiate(expoParticles, transform.position, Quaternion.identity);
         ParticleSystem newPart = Instantiate(part, transform.position, Quaternion.identity);
         newPart.Play();
     }
