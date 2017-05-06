@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisplayScore : MonoBehaviour {
-	public Text score; 
+public class DisplayScore : MonoBehaviour
+{
+    public Text score;
 
-	void Start() {
+    void Start()
+    {
         GameManager gm = FindObjectOfType<GameManager>();
 
-		if (gm != null) {
+        if (gm != null)
+        {
             score.text = "SCORE: " + gm.score.ToString();
-		}
-	}
+        }
+    }
 }
