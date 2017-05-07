@@ -5,15 +5,35 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int score;
-    public bool playerHasShield = false;
+    
+    Player player;
+
+    bool _playerHasShield = false;
+    public bool playerHasShield
+    {
+        get
+        {
+            return _playerHasShield;
+        }
+
+        set
+        {
+            if (player)
+            _playerHasShield = value;
+            player.ChangeShieldColor(_playerHasShield);
+        }
+    }
+
 
     void Awake()
     {
+        player = GameObject.FindObjectOfType<Player>();
         Globals.GM = this;
         Application.targetFrameRate = 50;
     }
 
-    public void Reset() {
+    public void Reset()
+    {
         playerHasShield = false;
         // for slow down blocks
         Time.timeScale = 1;

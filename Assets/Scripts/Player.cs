@@ -24,13 +24,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Globals.GM.playerHasShield)
-        {
-            sRenderer.color = new Color32(255, 177, 60, 255);
-        } else {
-            sRenderer.color = Color.white;
-        }
-
         if (Input.GetMouseButtonDown(0))
         {
             if (des == movePoint1)
@@ -47,5 +40,12 @@ public class Player : MonoBehaviour
     {
         ParticleSystem newPart = Instantiate(part, transform.position, Quaternion.identity);
         newPart.Play();
+    }
+
+    public void ChangeShieldColor(bool enabled) {
+        if (enabled) 
+            sRenderer.color = new Color32(255, 177, 60, 255);
+        else 
+            sRenderer.color = Color.white;
     }
 }
