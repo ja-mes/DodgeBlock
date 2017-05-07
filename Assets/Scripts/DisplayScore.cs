@@ -9,6 +9,8 @@ public class DisplayScore : MonoBehaviour
 
     void Start()
     {
+        // Incase player dies wile slowdown is activiated
+        Time.timeScale = 1;
         GameManager gm = FindObjectOfType<GameManager>();
 
         if (gm != null)
