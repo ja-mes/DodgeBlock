@@ -70,19 +70,14 @@ public class Player : MonoBehaviour
     {
         isDead = true;
         Destroy(gameObject);
-        Invoke("ResetScene", timeBeforeDestruction);
-
+        
+        Globals.GM.ResetSceneWithTimeout(timeBeforeDestruction);
         Globals.GM.score = score;
 
         if (PlayerPrefs.GetInt("HighScore") < score)
         {
             PlayerPrefs.SetInt("HighScore", score);
         }
-    }
-
-    private void ResetScene()
-    {
-        SceneManager.LoadScene(2);
     }
 
 }

@@ -13,7 +13,6 @@ public class DisplayScore : MonoBehaviour
 
         if (gm != null)
         {
-            gm.Reset();
             score.text = "SCORE: " + gm.score.ToString();
         }
     }

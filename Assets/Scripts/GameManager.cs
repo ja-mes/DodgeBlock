@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,9 +19,9 @@ public class GameManager : MonoBehaviour
 
         set
         {
-            if (player)
             _playerHasShield = value;
-            player.ChangeShieldColor(_playerHasShield);
+            if (player)
+                player.ChangeShieldColor(_playerHasShield);
         }
     }
 
@@ -33,10 +34,19 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 50;
     }
 
-    public void Reset()
+    public void ResetSceneWithTimeout(float desTime)
     {
+        print("Invoke reset timeout call in GM");
+        Invoke("ResetScene", desTime);
+    }
+
+    public void ResetScene()
+    {
+        print("Reset scene GM");
         playerHasShield = false;
         // for slow down blocks
         Time.timeScale = 1;
+
+        SceneManager.LoadScene(2);
     }
 }
