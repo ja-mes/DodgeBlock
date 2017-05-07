@@ -5,7 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     bool hasHitScore = false;
+    private GameManager gm;
 
+    void Start()
+    {
+    }
     void Update()
     {
         if (transform.position.y < -4.4 && !hasHitScore)
@@ -24,8 +28,8 @@ public class Enemy : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-			FindObjectOfType<ScoreManager>().Die();
-			col.gameObject.GetComponent<Player>().InvokeExplosion();
+            FindObjectOfType<ScoreManager>().Die();
+            col.gameObject.GetComponent<Player>().InvokeExplosion();
         }
     }
 
