@@ -5,4 +5,5 @@ using UnityEngine;
 public static class Globals 
 {
 	public static GameManager GM;
+	public static Player Player;
 }

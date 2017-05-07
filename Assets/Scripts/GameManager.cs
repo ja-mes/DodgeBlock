@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.FindObjectOfType<Player>();
         Globals.GM = this;
+        Globals.Player = player;
         Application.targetFrameRate = 50;
     }
 

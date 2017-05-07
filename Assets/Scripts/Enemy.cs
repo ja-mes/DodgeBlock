@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     {
         if (transform.position.y < -4.4 && !hasHitScore)
         {
-            FindObjectOfType<ScoreManager>().IncScore();
+            Globals.Player.IncScore();
             hasHitScore = true;
         }
         else if (transform.position.y < -5.5)

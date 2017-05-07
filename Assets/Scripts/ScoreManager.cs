@@ -11,13 +11,8 @@ public class ScoreManager : MonoBehaviour {
 	private int score = 0;
 	private bool isDead = false;
 
-	public void IncScore(int amount = 1) {
-        if (!isDead) {
-            score += amount;
-            scoreText.text = score.ToString();
-        }
-    }
 
+    // TODO: player should manage its own death
     public void Die()
     {
         isDead = true;
