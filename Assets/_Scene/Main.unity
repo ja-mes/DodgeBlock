@@ -348,11 +348,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4537960828907420, guid: 2beb6fb73809f4c789af36b14a16dd80, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.1885564
+      value: -1.33
       objectReference: {fileID: 0}
     - target: {fileID: 4537960828907420, guid: 2beb6fb73809f4c789af36b14a16dd80, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.3911515
+      value: 3.61
       objectReference: {fileID: 0}
     - target: {fileID: 4537960828907420, guid: 2beb6fb73809f4c789af36b14a16dd80, type: 2}
       propertyPath: m_LocalPosition.z
@@ -584,8 +584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fc333b453e5445ebc91cb6de8d1a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expoParticles: {fileID: 1272282349274202, guid: 45d4d2087b1f54704b6f16d9312cd37b,
-    type: 2}
   part: {fileID: 198020397112242838, guid: 01a47a1e35fca491caa095149fdc5528, type: 2}
   movePoint1: {fileID: 1028696237}
   movePoint2: {fileID: 1768402589}
