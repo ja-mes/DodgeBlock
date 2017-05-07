@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     bool hasHitScore = false;
-    private GameManager gm;
 
     void Start()
     {
@@ -26,7 +25,7 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player" && !Globals.GM.playerHasShield)
         {
             FindObjectOfType<ScoreManager>().Die();
             col.gameObject.GetComponent<Player>().InvokeExplosion();
