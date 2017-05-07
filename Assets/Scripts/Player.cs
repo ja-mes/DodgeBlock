@@ -12,9 +12,11 @@ public class Player : MonoBehaviour
 
 	private Rigidbody2D rb;
     private Transform des;
+    private SpriteRenderer sRenderer;
 
 
 	void Start() {
+        sRenderer = GetComponent<SpriteRenderer>();
 		rb = GetComponent<Rigidbody2D>();
         adjustedLerpSpeed = lerpSpeed;
         des = movePoint1;
@@ -22,10 +24,18 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)) {
+        if (Globals.GM.playerHasShield)
+        {
+            sRenderer.color = new Color32(255, 177, 60, 255);
+        } else {
+            sRenderer.color = Color.white;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
             if (des == movePoint1)
                 des = movePoint2;
-            else 
+            else
                 des = movePoint1;
         }
 
@@ -33,7 +43,8 @@ public class Player : MonoBehaviour
         rb.MovePosition(Vector3.Lerp(transform.position, des.position, lerpSpeed * (1 / Time.timeScale) * Time.deltaTime));
     }
 
-    public void InvokeExplosion() {
+    public void InvokeExplosion()
+    {
         ParticleSystem newPart = Instantiate(part, transform.position, Quaternion.identity);
         newPart.Play();
     }
