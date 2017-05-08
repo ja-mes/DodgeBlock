@@ -12,11 +12,18 @@ public class SlowDown : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			Time.timeScale = timeScale;
 
+            // Must disable these here because ga cannot be deleted or resetTimeScale will never be run
+            GetComponent<Renderer>().enabled = false;
+			GetComponent<BoxCollider2D>().enabled = false;
+
+            ParticleSystem newPt = Instantiate(ps, transform.position, Quaternion.identity);
+			newPt.Play();
+
 			Invoke("resetTimeScale", resetTime * (1 - timeScale));
 		}
 	}
-
 	void resetTimeScale() {
+        Destroy(gameObject);
 		Time.timeScale = 1;
 	}
 
