@@ -36,13 +36,11 @@ public class GameManager : MonoBehaviour
 
     public void ResetSceneWithTimeout(float desTime)
     {
-        print("Invoke reset timeout call in GM");
         Invoke("ResetScene", desTime);
     }
 
     public void ResetScene()
     {
-        print("Reset scene GM");
         playerHasShield = false;
         // for slow down blocks
         Time.timeScale = 1;

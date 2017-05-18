@@ -27,7 +27,6 @@ public class Enemy : MonoBehaviour
     {
         if (col.gameObject.tag == "Player" && !Globals.GM.playerHasShield)
         {
-            print("Enemy player die call");
             Globals.Player.Die();
             col.gameObject.GetComponent<Player>().InvokeExplosion();
         }
