@@ -29,7 +29,9 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindObjectOfType<Player>();
-        Globals.GM = this;
+        
+        // do not assign to "this" must use FindObjectOfType or this var disappears on second player death
+        Globals.GM = GameObject.FindObjectOfType<GameManager>();
         Globals.Player = player;
         Application.targetFrameRate = 50;
     }
