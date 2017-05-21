@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     public Text scoreText;
     public ParticleSystem part;
+    public Image shieldImage;
     public Transform movePoint1;
     public Transform movePoint2;
     public float lerpSpeed = 20f;
@@ -51,11 +52,14 @@ public class Player : MonoBehaviour
 
     public void ChangeShieldColor(bool enabled)
     {
-        if (enabled)
-            sRenderer.color = new Color32(255, 177, 60, 255);
-        else
-            sRenderer.color = Color.white;
+        if (enabled) {
+            shieldImage.color = new Color32(255, 69, 0, 33);
+        }
+        else {
+            shieldImage.color = Color.clear;
+        }
     }
+
 
     public void IncScore(int amount = 1)
     {
