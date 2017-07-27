@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public bool isDead = false;
     public float timeBeforeDestruction = 1f;
 
+    bool shieldState = true;
     Rigidbody2D rb;
     Transform des;
     SpriteRenderer sRenderer;
@@ -50,16 +51,50 @@ public class Player : MonoBehaviour
         newPart.Play();
     }
 
+    public void ResetShieldInTime(float time)
+    {
+        Invoke("ResetShield", time);
+        Invoke("StartShieldBlink", time - 2);
+    }
+
+    private void ResetShield()
+    {
+        Globals.GM.playerHasShield = false;
+    }
     public void ChangeShieldColor(bool enabled)
     {
-        if (enabled) {
+        if (enabled)
+        {
             shieldImage.color = new Color32(255, 69, 0, 33);
         }
-        else {
+        else
+        {
             shieldImage.color = Color.clear;
         }
     }
 
+    public void StartShieldBlink()
+    {
+        StartCoroutine(BlinkShield());
+    }
+
+    IEnumerator BlinkShield()
+    {
+        bool hasShield = Globals.GM.playerHasShield;
+
+        if (!hasShield)
+            ChangeShieldColor(false);
+
+        while (Globals.GM.playerHasShield)
+        {
+            yield return new WaitForSeconds(0.2f);
+            shieldState = !shieldState;
+            ChangeShieldColor(shieldState);
+        }
+
+
+        ChangeShieldColor(false);
+    }
 
     public void IncScore(int amount = 1)
     {
@@ -74,7 +109,7 @@ public class Player : MonoBehaviour
     {
         isDead = true;
         Destroy(gameObject);
-        
+
         Globals.GM.ResetSceneWithTimeout(timeBeforeDestruction);
         Globals.GM.score = score;
 

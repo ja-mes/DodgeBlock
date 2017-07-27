@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198741811018943416}
   - component: {fileID: 199717863440237352}
   m_Layer: 0
-  m_Name: Enemy PS
+  m_Name: Shield PS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2692,7 +2692,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: fbd546c4640ae4348abfcf6fda88f804, type: 2}
+  - {fileID: 2100000, guid: 060eb31deadf74af6a28636b1a7b72d1, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
