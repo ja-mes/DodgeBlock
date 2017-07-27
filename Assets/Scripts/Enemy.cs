@@ -42,8 +42,8 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                Globals.Player.Die();
                 col.gameObject.GetComponent<Player>().InvokeExplosion();
+                Globals.Player.Die();
             }
         }
     }
