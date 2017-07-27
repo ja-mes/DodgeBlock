@@ -53,9 +53,11 @@ public class Player : MonoBehaviour
     public void ChangeShieldColor(bool enabled)
     {
         if (enabled) {
+            print("Enabled");
             shieldImage.color = new Color32(255, 69, 0, 33);
         }
         else {
+            print("Disabled");
             shieldImage.color = Color.clear;
         }
     }

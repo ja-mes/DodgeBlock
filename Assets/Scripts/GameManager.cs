@@ -20,8 +20,9 @@ public class GameManager : MonoBehaviour
         set
         {
             _playerHasShield = value;
-            if (player)
-                player.ChangeShieldColor(_playerHasShield);
+            // if (player)
+            //     print("change shield color in player called from setter");
+            //     player.ChangeShieldColor(_playerHasShield);
         }
     }
 

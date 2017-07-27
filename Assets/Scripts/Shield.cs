@@ -19,6 +19,8 @@ public class Shield : MonoBehaviour
         {
             Globals.GM.playerHasShield = true;
 
+            player.ChangeShieldColor(true);
+
             Invoke("ResetShield", shieldDuration);
             Invoke("StartShieldBlink", shieldDuration - 2);
         }
@@ -36,7 +38,6 @@ public class Shield : MonoBehaviour
     }
     IEnumerator BlinkShield()
     {
-        print("BlinkShield");
         bool hasShield = Globals.GM.playerHasShield;
 
         if (!hasShield)
