@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
         }
 
 
-        ChangeShieldColor(false);
+        ChangeInfoColor(false);
     }
 
     public void IncScore(int amount = 1)
