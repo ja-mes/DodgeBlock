@@ -110,8 +110,11 @@ public class Player : MonoBehaviour
         isDead = true;
         Destroy(gameObject);
 
-        Globals.GM.ResetSceneWithTimeout(timeBeforeDestruction);
-        Globals.GM.score = score;
+        // must refind GM here
+        GameManager GM = GameObject.FindObjectOfType<GameManager>();
+
+        GM.ResetSceneWithTimeout(timeBeforeDestruction);
+        GM.score = score;
 
         if (PlayerPrefs.GetInt("HighScore") < score)
         {

@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                col.gameObject.GetComponent<Player>().InvokeExplosion();
+                Globals.Player.InvokeExplosion();
                 Globals.Player.Die();
             }
         }
