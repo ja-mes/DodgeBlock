@@ -61,14 +61,16 @@ public class Player : MonoBehaviour
     {
         Globals.GM.playerHasShield = false;
     }
-    public void ChangeInfoColor(bool enabled)
+
+    public void ChangeInfoColor(string type = null)
     {
-        if (enabled)
+        if (type == "shield")
         {
             shieldImage.color = new Color32(255, 69, 0, 33);
-
-            // FREEZE COLOR 
-            // shieldImage.color = new Color32(60, 158, 225, 33);
+        }
+        else if (type == "freeze")
+        {
+            shieldImage.color = new Color32(60, 158, 225, 33);
         }
         else
         {
@@ -86,17 +88,21 @@ public class Player : MonoBehaviour
         bool hasShield = Globals.GM.playerHasShield;
 
         if (!hasShield)
-            ChangeInfoColor(false);
+            ChangeInfoColor("shield");
 
         while (Globals.GM.playerHasShield)
         {
             yield return new WaitForSeconds(0.2f);
             shieldState = !shieldState;
-            ChangeInfoColor(shieldState);
+
+            if (shieldState)
+                ChangeInfoColor("shield");
+            else 
+                ChangeInfoColor();
         }
 
 
-        ChangeInfoColor(false);
+        ChangeInfoColor();
     }
 
     public void IncScore(int amount = 1)
