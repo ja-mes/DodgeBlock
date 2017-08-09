@@ -60,6 +60,7 @@ public class Player : MonoBehaviour
     private void ResetShield()
     {
         Globals.GM.playerHasShield = false;
+        Globals.GM.playerHasFreeze = false;
     }
 
     public void ChangeInfoColor(string type = null)
@@ -86,9 +87,13 @@ public class Player : MonoBehaviour
     IEnumerator BlinkShield()
     {
         bool hasShield = Globals.GM.playerHasShield;
+        bool hasFreeze = Globals.GM.playerHasFreeze;
 
         if (!hasShield)
             ChangeInfoColor("shield");
+
+        if (!hasFreeze)
+            ChangeInfoColor("freeze");
 
         while (Globals.GM.playerHasShield)
         {
@@ -101,6 +106,16 @@ public class Player : MonoBehaviour
                 ChangeInfoColor();
         }
 
+        while (Globals.GM.playerHasFreeze) 
+        {
+            yield return new WaitForSeconds(0.2f);
+            shieldState = !shieldState;
+
+            if(shieldState)
+                ChangeInfoColor("freeze");
+            else 
+                ChangeInfoColor();
+        }
 
         ChangeInfoColor();
     }

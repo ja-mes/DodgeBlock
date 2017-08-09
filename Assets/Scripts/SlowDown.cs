@@ -20,6 +20,12 @@ public class SlowDown : MonoBehaviour {
 			newPt.Play();
 
 			Invoke("resetTimeScale", resetTime * (1 - timeScale));
+
+
+			Globals.GM.playerHasFreeze = true;
+
+			Globals.Player.ResetShieldInTime(resetTime);
+			Globals.Player.ChangeInfoColor("freeze");
 		}
 	}
 	void resetTimeScale() {

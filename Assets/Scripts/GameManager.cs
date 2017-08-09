@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     Player player;
 
     bool _playerHasShield = false;
+    bool _playerHasFreeze = false;
+
     public bool playerHasShield
     {
         get
@@ -23,6 +25,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public bool playerHasFreeze
+    {
+        get
+        {
+            return _playerHasFreeze;
+        }
+
+        set
+        {
+            _playerHasFreeze = value;
+        }
+    }
 
     void Awake()
     {
