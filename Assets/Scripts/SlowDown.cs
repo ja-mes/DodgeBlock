@@ -22,12 +22,14 @@ public class SlowDown : MonoBehaviour
             ParticleSystem newPt = Instantiate(ps, transform.position, Quaternion.identity);
             newPt.Play();
 
-            Invoke("resetTimeScale", resetTime * (1 - timeScale));
+			float resetFreezeInTime = resetTime * (1 - timeScale);
+
+            Invoke("resetTimeScale", resetFreezeInTime);
 
 
             Globals.GM.playerHasFreeze = true;
 
-            Globals.InfoColor.ResetInfoColorInTime(resetTime);
+            Globals.InfoColor.ResetInfoColorInTime("freeze", resetFreezeInTime);
             Globals.InfoColor.ChangeInfoColor("freeze");
         }
     }

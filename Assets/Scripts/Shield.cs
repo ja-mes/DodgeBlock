@@ -18,7 +18,7 @@ public class Shield : MonoBehaviour
         {
             Globals.GM.playerHasShield = true;
 
-            Globals.InfoColor.ResetInfoColorInTime(shieldDuration);
+            Globals.InfoColor.ResetInfoColorInTime("shield", shieldDuration);
             Globals.InfoColor.ChangeInfoColor("shield");
 
             InvokeExplosion();
