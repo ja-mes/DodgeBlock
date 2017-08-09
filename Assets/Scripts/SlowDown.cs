@@ -30,7 +30,7 @@ public class SlowDown : MonoBehaviour
             Globals.GM.playerHasFreeze = true;
 
             Globals.InfoColor.ResetInfoColorInTime("freeze", resetFreezeInTime);
-            Globals.InfoColor.ChangeInfoColor("freeze");
+            Globals.InfoColor.ChangeInfoColor();
         }
     }
     void resetTimeScale()

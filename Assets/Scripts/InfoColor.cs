@@ -36,13 +36,17 @@ public class InfoColor : MonoBehaviour
         Globals.GM.playerHasFreeze = false;
     }
 
-    public void ChangeInfoColor(string type = null)
+    public void ChangeInfoColor()
     {
-        if (type == "shield")
+        if (Globals.GM.playerHasShield && Globals.GM.playerHasFreeze) 
+        {
+            shieldImage.color = new Color32(171, 77, 255, 33);
+        }
+        else if (Globals.GM.playerHasShield)
         {
             shieldImage.color = new Color32(255, 69, 0, 33);
         }
-        else if (type == "freeze")
+        else if (Globals.GM.playerHasFreeze)
         {
             shieldImage.color = new Color32(60, 158, 225, 33);
         }
@@ -52,6 +56,10 @@ public class InfoColor : MonoBehaviour
         }
     }
 
+    private void ClearInfoColor()
+    {
+        shieldImage.color = Color.clear;
+    }
 
     public void StartInfoColorBlink()
     {
@@ -69,9 +77,9 @@ public class InfoColor : MonoBehaviour
             infoState = !infoState;
 
             if (infoState)
-                ChangeInfoColor("shield");
-            else
                 ChangeInfoColor();
+            else
+                ClearInfoColor();
         }
 
         while (Globals.GM.playerHasFreeze)
@@ -80,11 +88,11 @@ public class InfoColor : MonoBehaviour
             infoState = !infoState;
 
             if (infoState)
-                ChangeInfoColor("freeze");
-            else
                 ChangeInfoColor();
+            else
+                ClearInfoColor();
         }
 
-        ChangeInfoColor();
+        ClearInfoColor();
     }
 }
