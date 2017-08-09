@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         // do not assign to "this" must use FindObjectOfType or this var disappears on second player death
         Globals.GM = GameObject.FindObjectOfType<GameManager>();
         Globals.Player = player;
+        Globals.InfoColor = GameObject.FindObjectOfType<InfoColor>();
         Application.targetFrameRate = 50;
     }
 
