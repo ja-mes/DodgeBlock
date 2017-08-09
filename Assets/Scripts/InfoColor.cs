@@ -10,23 +10,28 @@ public class InfoColor : MonoBehaviour
     bool infoState = false;
 
 
-    public void ResetInfoColorInTime(string type, float time) 
+    void Start()
+    {
+        shieldImage.color = Color.clear;
+    }
+
+    public void ResetInfoColorInTime(string type, float time)
     {
         if (type == "shield")
             Invoke("ResetShield", time);
         else if (type == "freeze")
             Invoke("ResetFreeze", time);
 
-        Invoke("StartInfoColorBlink", time-2);
+        Invoke("StartInfoColorBlink", time - 2);
     }
 
 
-    private void ResetShield() 
+    private void ResetShield()
     {
         Globals.GM.playerHasShield = false;
     }
 
-    private void ResetFreeze() 
+    private void ResetFreeze()
     {
         Globals.GM.playerHasFreeze = false;
     }
@@ -57,12 +62,6 @@ public class InfoColor : MonoBehaviour
     {
         bool hasShield = Globals.GM.playerHasShield;
         bool hasFreeze = Globals.GM.playerHasFreeze;
-
-        if (!hasShield)
-            ChangeInfoColor("shield");
-
-        if (!hasFreeze)
-            ChangeInfoColor("freeze");
 
         while (Globals.GM.playerHasShield)
         {
