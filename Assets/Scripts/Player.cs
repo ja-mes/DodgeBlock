@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     public bool isDead = false;
     public float timeBeforeDestruction = 1f;
 
-    bool shieldState = true;
     Rigidbody2D rb;
     Transform des;
     SpriteRenderer sRenderer;
@@ -49,75 +48,6 @@ public class Player : MonoBehaviour
     {
         ParticleSystem newPart = Instantiate(part, transform.position, Quaternion.identity);
         newPart.Play();
-    }
-
-    public void ResetShieldInTime(float time)
-    {
-        Invoke("ResetShield", time);
-        Invoke("StartShieldBlink", time - 2);
-    }
-
-    private void ResetShield()
-    {
-        Globals.GM.playerHasShield = false;
-        Globals.GM.playerHasFreeze = false;
-    }
-
-    public void ChangeInfoColor(string type = null)
-    {
-        if (type == "shield")
-        {
-            shieldImage.color = new Color32(255, 69, 0, 33);
-        }
-        else if (type == "freeze")
-        {
-            shieldImage.color = new Color32(60, 158, 225, 33);
-        }
-        else
-        {
-            shieldImage.color = Color.clear;
-        }
-    }
-
-    public void StartShieldBlink()
-    {
-        StartCoroutine(BlinkShield());
-    }
-
-    IEnumerator BlinkShield()
-    {
-        bool hasShield = Globals.GM.playerHasShield;
-        bool hasFreeze = Globals.GM.playerHasFreeze;
-
-        if (!hasShield)
-            ChangeInfoColor("shield");
-
-        if (!hasFreeze)
-            ChangeInfoColor("freeze");
-
-        while (Globals.GM.playerHasShield)
-        {
-            yield return new WaitForSeconds(0.2f);
-            shieldState = !shieldState;
-
-            if (shieldState)
-                ChangeInfoColor("shield");
-            else 
-                ChangeInfoColor();
-        }
-
-        while (Globals.GM.playerHasFreeze) 
-        {
-            yield return new WaitForSeconds(0.2f);
-            shieldState = !shieldState;
-
-            if(shieldState)
-                ChangeInfoColor("freeze");
-            else 
-                ChangeInfoColor();
-        }
-
-        ChangeInfoColor();
     }
 
     public void IncScore(int amount = 1)
