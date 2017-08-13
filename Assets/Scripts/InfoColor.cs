@@ -9,10 +9,22 @@ public class InfoColor : MonoBehaviour
 
     bool infoState = false;
 
+    Color32 shieldColor = new Color32(255, 69, 0, 33);
+    Color32 freezeColor = new Color32(60, 158, 225, 33);
+    Color32 colorToFade;
+    bool fadeOneColor = false;
 
     void Start()
     {
         shieldImage.color = Color.clear;
+    }
+
+    void Update() 
+    {
+        if (fadeOneColor)
+        {
+            shieldImage.color = Color.Lerp(colorToFade, Color.clear, Mathf.PingPong(Time.time * 3, 1));
+        }
     }
 
     public void ResetInfoColorInTime(string type, float time)
@@ -29,11 +41,13 @@ public class InfoColor : MonoBehaviour
     private void ResetShield()
     {
         Globals.GM.playerHasShield = false;
+        ClearInfoColor();
     }
 
     private void ResetFreeze()
     {
         Globals.GM.playerHasFreeze = false;
+        ClearInfoColor();
     }
 
     public void ChangeInfoColor()
@@ -58,41 +72,13 @@ public class InfoColor : MonoBehaviour
 
     private void ClearInfoColor()
     {
+        fadeOneColor = false;
         shieldImage.color = Color.clear;
     }
 
     public void StartInfoColorBlink()
     {
-        StartCoroutine(BlinkInfoColor());
-    }
-
-    IEnumerator BlinkInfoColor()
-    {
-        bool hasShield = Globals.GM.playerHasShield;
-        bool hasFreeze = Globals.GM.playerHasFreeze;
-
-        while (Globals.GM.playerHasShield)
-        {
-            yield return new WaitForSeconds(0.2f);
-            infoState = !infoState;
-
-            if (infoState)
-                ChangeInfoColor();
-            else
-                ClearInfoColor();
-        }
-
-        while (Globals.GM.playerHasFreeze)
-        {
-            yield return new WaitForSeconds(0.2f);
-            infoState = !infoState;
-
-            if (infoState)
-                ChangeInfoColor();
-            else
-                ClearInfoColor();
-        }
-
-        ClearInfoColor();
+        fadeOneColor = true;
+        colorToFade = shieldImage.color;
     }
 }
