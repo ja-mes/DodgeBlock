@@ -10,8 +10,6 @@ public class InfoColor : MonoBehaviour
     bool infoState = false;
 
     Color32 shieldColor = new Color32(255, 69, 0, 33);
-    Color32 freezeColor = new Color32(60, 158, 225, 33);
-    Color32 colorToFade;
     bool fadeOneColor = false;
 
     void Start()
@@ -23,17 +21,13 @@ public class InfoColor : MonoBehaviour
     {
         if (fadeOneColor)
         {
-            shieldImage.color = Color.Lerp(colorToFade, Color.clear, Mathf.PingPong(Time.time * 3, 1));
+            shieldImage.color = Color.Lerp(shieldColor, Color.clear, Mathf.PingPong(Time.time * 3, 1));
         }
     }
 
     public void ResetInfoColorInTime(string type, float time)
     {
-        if (type == "shield")
-            Invoke("ResetShield", time);
-        else if (type == "freeze")
-            Invoke("ResetFreeze", time);
-
+        Invoke("ResetShield", time);
         Invoke("StartInfoColorBlink", time - 2);
     }
 
@@ -41,31 +35,15 @@ public class InfoColor : MonoBehaviour
     private void ResetShield()
     {
         Globals.GM.playerHasShield = false;
-        ClearInfoColor();
-    }
-
-    private void ResetFreeze()
-    {
-        Globals.GM.playerHasFreeze = false;
-        if (!Globals.GM.playerHasShield)
-            ClearInfoColor();
-        else
-            ChangeInfoColor();
+        fadeOneColor = false;
+        shieldImage.color = Color.clear;
     }
 
     public void ChangeInfoColor()
     {
-        if (Globals.GM.playerHasShield && Globals.GM.playerHasFreeze)
-        {
-            shieldImage.color = new Color32(171, 77, 255, 33);
-        }
-        else if (Globals.GM.playerHasShield)
+        if (Globals.GM.playerHasShield)
         {
             shieldImage.color = new Color32(255, 69, 0, 33);
-        }
-        else if (Globals.GM.playerHasFreeze)
-        {
-            shieldImage.color = new Color32(60, 158, 225, 33);
         }
         else
         {
@@ -73,15 +51,8 @@ public class InfoColor : MonoBehaviour
         }
     }
 
-    private void ClearInfoColor()
-    {
-        fadeOneColor = false;
-        shieldImage.color = Color.clear;
-    }
-
     public void StartInfoColorBlink()
     {
         fadeOneColor = true;
-        colorToFade = shieldImage.color;
     }
 }

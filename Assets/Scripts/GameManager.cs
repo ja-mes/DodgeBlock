@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     Player player;
 
     bool _playerHasShield = false;
-    bool _playerHasFreeze = false;
 
     public bool playerHasShield
     {
@@ -22,19 +21,6 @@ public class GameManager : MonoBehaviour
         set
         {
             _playerHasShield = value;
-        }
-    }
-
-    public bool playerHasFreeze
-    {
-        get
-        {
-            return _playerHasFreeze;
-        }
-
-        set
-        {
-            _playerHasFreeze = value;
         }
     }
 

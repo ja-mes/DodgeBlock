@@ -25,12 +25,6 @@ public class SlowDown : MonoBehaviour
 			float resetFreezeInTime = resetTime * (1 - timeScale);
 
             Invoke("resetTimeScale", resetFreezeInTime);
-
-
-            Globals.GM.playerHasFreeze = true;
-
-            Globals.InfoColor.ResetInfoColorInTime("freeze", resetFreezeInTime);
-            Globals.InfoColor.ChangeInfoColor();
         }
     }
     void resetTimeScale()
