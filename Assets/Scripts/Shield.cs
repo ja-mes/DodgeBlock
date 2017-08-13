@@ -17,8 +17,7 @@ public class Shield : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Globals.GM.playerHasShield = true;
-
-            Globals.InfoColor.ResetInfoColorInTime("shield", shieldDuration);
+            Globals.InfoColor.shieldResetTime += shieldDuration;
             Globals.InfoColor.ChangeInfoColor();
 
             InvokeExplosion();
@@ -29,7 +28,7 @@ public class Shield : MonoBehaviour
 
     void InvokeExplosion()
     {
-        ParticleSystem newPart = Instantiate(ps, transform.position, Quaternion.identity); 
+        ParticleSystem newPart = Instantiate(ps, transform.position, Quaternion.identity);
         newPart.Play();
     }
 }

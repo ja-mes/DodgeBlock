@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     SpriteRenderer sRenderer;
     int score = 0;
 
-
     void Start()
     {
         sRenderer = GetComponent<SpriteRenderer>();

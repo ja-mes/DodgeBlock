@@ -7,35 +7,54 @@ public class InfoColor : MonoBehaviour
 {
     public Image shieldImage;
 
-    bool infoState = false;
-
     Color32 shieldColor = new Color32(255, 69, 0, 33);
-    bool fadeOneColor = false;
+
+    bool blink = false;
+
+    float _shieldResetTime;
+
+    public float shieldResetTime
+    {
+        get
+        {
+            return _shieldResetTime;
+        }
+        set 
+        {
+            _shieldResetTime = value;
+        }
+    }
 
     void Start()
     {
         shieldImage.color = Color.clear;
     }
 
-    void Update() 
+    void Update()
     {
-        if (fadeOneColor)
+
+        if (Globals.GM.playerHasShield)
+        {
+            shieldResetTime -= Time.deltaTime;
+
+            if(shieldResetTime <= 2)
+                blink = true;
+
+            if (shieldResetTime <= 0)
+                ResetShield();
+        }
+
+        if (blink)
         {
             shieldImage.color = Color.Lerp(shieldColor, Color.clear, Mathf.PingPong(Time.time * 3, 1));
         }
     }
 
-    public void ResetInfoColorInTime(string type, float time)
-    {
-        Invoke("ResetShield", time);
-        Invoke("StartInfoColorBlink", time - 2);
-    }
-
-
     private void ResetShield()
     {
+        shieldResetTime = 0;
         Globals.GM.playerHasShield = false;
-        fadeOneColor = false;
+        blink = false;
         shieldImage.color = Color.clear;
     }
 
@@ -43,16 +62,11 @@ public class InfoColor : MonoBehaviour
     {
         if (Globals.GM.playerHasShield)
         {
-            shieldImage.color = new Color32(255, 69, 0, 33);
+            shieldImage.color = shieldColor;
         }
         else
         {
             shieldImage.color = Color.clear;
         }
-    }
-
-    public void StartInfoColorBlink()
-    {
-        fadeOneColor = true;
     }
 }

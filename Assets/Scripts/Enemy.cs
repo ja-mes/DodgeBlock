@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
         {
             if (Globals.GM.playerHasShield)
             {
-                Globals.Player.IncScore(10);
+                Globals.Player.IncScore(3);
                 InvokeExplosion();
                 Destroy(this.gameObject);
             }
