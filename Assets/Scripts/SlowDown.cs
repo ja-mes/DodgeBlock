@@ -8,7 +8,6 @@ public class SlowDown : MonoBehaviour
     public float timeScale = 0.5f;
     public float resetTime = 3;
 
-
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Player")
@@ -24,7 +23,11 @@ public class SlowDown : MonoBehaviour
 
 			float resetFreezeInTime = resetTime * (1 - timeScale);
 
-            Invoke("resetTimeScale", resetFreezeInTime);
+            Globals.GM.playerHasFreeze = true;
+            Globals.InfoColor.freezeResetTime += resetFreezeInTime;
+
+
+            //Invoke("resetTimeScale", resetFreezeInTime);
         }
     }
     void resetTimeScale()
