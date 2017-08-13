@@ -47,12 +47,15 @@ public class InfoColor : MonoBehaviour
     private void ResetFreeze()
     {
         Globals.GM.playerHasFreeze = false;
-        ClearInfoColor();
+        if (!Globals.GM.playerHasShield)
+            ClearInfoColor();
+        else
+            ChangeInfoColor();
     }
 
     public void ChangeInfoColor()
     {
-        if (Globals.GM.playerHasShield && Globals.GM.playerHasFreeze) 
+        if (Globals.GM.playerHasShield && Globals.GM.playerHasFreeze)
         {
             shieldImage.color = new Color32(171, 77, 255, 33);
         }
