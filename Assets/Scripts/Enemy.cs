@@ -18,10 +18,6 @@ public class Enemy : MonoBehaviour
             Globals.Player.IncScore();
             hasHitScore = true;
         }
-        else if (transform.position.y < -5.5)
-        {
-            Destroy(gameObject);
-        }
     }
 
     void InvokeExplosion()
