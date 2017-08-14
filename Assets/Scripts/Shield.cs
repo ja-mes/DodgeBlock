@@ -5,8 +5,8 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
     public ParticleSystem ps;
+    public float shieldDuration = 6f;
     private Player player;
-    private float shieldDuration = 6f;
 
     void Start()
     {

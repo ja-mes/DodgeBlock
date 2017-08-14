@@ -58,7 +58,7 @@ public class InfoColor : MonoBehaviour
         {
             shieldResetTime -= Time.deltaTime;
 
-            if(shieldResetTime <= 2)
+            if(shieldResetTime <= 1)
                 blink = true;
 
             if (shieldResetTime <= 0)
@@ -67,7 +67,7 @@ public class InfoColor : MonoBehaviour
 
         if (blink)
         {
-            shieldImage.color = Color.Lerp(shieldColor, Color.clear, Mathf.PingPong(Time.time * 3, 1));
+            shieldImage.color = Color.Lerp(Color.clear, shieldColor, Mathf.PingPong(Time.time * 4, 1));
         }
     }
 
