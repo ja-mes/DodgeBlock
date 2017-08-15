@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ps: {fileID: 198741811018943416, guid: 26d014e92cee9421c88c7ca357b40f33, type: 2}
+  shieldDuration: 4
 --- !u!212 &212348401267097782
 SpriteRenderer:
   m_ObjectHideFlags: 1
